@@ -677,11 +677,6 @@ struct app
         }
     }
 
-    inline std::string indent(const std::string& value)
-    {
-        return concat("    ", value);
-    }
-
     inline clapp::arg* parse_arg(clapp::parse_result& result, clapp::arg& arg)
     {
         if (result.is_present(arg.name())) {
@@ -773,36 +768,3 @@ struct app
     }
 };
 }; // namespace clapp
-/*
-
-My Super Program 1.0
-Kevin K. <kbknapp@gmail.com>
-Does awesome things
-
-USAGE:
-    test_clap [OPTIONS] <INPUT> [SUBCOMMAND]
-
-ARGS:
-    <INPUT>    Sets the input file to use
-
-FLAGS:
-    -h, --help       Prints help information
-    -V, --version    Prints version information
-
-OPTIONS:
-    -c, --config <FILE>    Sets a custom config file
-    -v <v>...              Sets the level of verbosity
-
-SUBCOMMANDS:
-    help    Prints this message or the help of the given subcommand(s)
-    test    controls testing features
-----
-error: The following required arguments were not provided:
-
-    <INPUT>
-
-USAGE:
-    test_clap [OPTIONS] <INPUT> [SUBCOMMAND]
-
-For more information try --help
-*/
